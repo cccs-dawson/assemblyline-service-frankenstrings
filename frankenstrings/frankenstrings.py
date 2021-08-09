@@ -703,7 +703,7 @@ class FrankenStrings(ServiceBase):
                                           parent=request.result))
             for key, hex_list in sorted(asciihex_dict.items()):
                 for h in hex_list:
-                    asciihex_res.add_line(f"Found {key.replace('_', ' ')} decoded HEX string: {safe_str(h)}")
+                    asciihex_res.add_line(f"Found {key} decoded HEX string: {safe_str(h)}")
 
         if asciihex_bb_dict:
             asciihex_bb_res = (ResultSection("ASCII HEX AND XOR DECODED IOC Strings:",
@@ -712,7 +712,7 @@ class FrankenStrings(ServiceBase):
                 for xresult in xset:
                     data, match, transform = xresult
                     asx_res = (ResultSection(f"Result {xindex}", parent=asciihex_bb_res))
-                    asx_res.add_line(f"Found {xkey.replace('_', ' ')} decoded HEX string, masked with "
+                    asx_res.add_line(f"Found {xkey} decoded HEX string, masked with "
                                      f"transform {safe_str(transform)}:")
                     asx_res.add_line("Decoded XOR string:")
                     asx_res.add_line(safe_str(match))
